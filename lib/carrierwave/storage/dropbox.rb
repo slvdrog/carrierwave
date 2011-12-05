@@ -72,7 +72,7 @@ module CarrierWave
         def initialize(uploader, base, path)
           @base = base
           @path = path
-          @uploader
+          @uploader = uploader
         end
 
         ##
