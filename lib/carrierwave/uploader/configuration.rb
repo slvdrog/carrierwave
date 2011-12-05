@@ -134,7 +134,8 @@ module CarrierWave
               :s3 => "CarrierWave::Storage::S3",
               :grid_fs => "CarrierWave::Storage::GridFS",
               :right_s3 => "CarrierWave::Storage::RightS3",
-              :cloud_files => "CarrierWave::Storage::CloudFiles"
+              :cloud_files => "CarrierWave::Storage::CloudFiles",
+              :dropbox => "CarrierWave::Storage::Dropbox"
             }
             config.storage = :file
             config.s3_headers = {}
