@@ -41,6 +41,10 @@ module CarrierWave
         add_config :move_to_cache
         add_config :move_to_store
         add_config :remove_previously_stored_files_after_update
+        add_config :dropbox_consumer_key
+        add_config :dropbox_consumer_secret
+        add_config :dropbox_token
+        add_config :dropbox_token_secret
 
         # fog
         add_config :fog_attributes

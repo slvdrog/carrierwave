@@ -67,13 +67,10 @@ module CarrierWave
     #     'us-west-1' => 's3-us-west-1.amazonaws.com'
     #
     class Dropbox < Abstract
-
       class File
 
-        def initialize(db_token, db_token_secret, path)
-          session = DropboxSession.new('a4icovf22mbqf4q', '3z94qgj1fy3dzpk')
-          session.set_access_token(db_token, db_token_secret)
-          client = DropboxClient.new(session, :app_folder)
+        def initialize(, base, path)
+          
           @path = path
         end
 
@@ -125,6 +122,17 @@ module CarrierWave
 
       end
 
+      def store!(file)
+        f = CarrierWave::Storage::Dropbox::File.new(uploader, self, uploader.store_path)
+        f.store(file)
+        f
+      end
+
+      def retrieve!
+        f = CarrierWave::Storage::Dropbox::File.new(uploader, self, uploader.store_path)
+        f.read``(file)
+        f
+      end
 
       def client
         @client ||= DropboxClient.new(session, uploader.dropbox_access_type)
@@ -136,9 +144,13 @@ module CarrierWave
 
       def new_session
         db_session = DropboxSession.new(uploader.dropbox_consumer_key, uploader.dropbox_consumer_secret)
-        db_session.set_access_token(uploader.dropbox_token, uploader.dropbox_token_secret)
+        db_session.set_access_token(@dropbox_token, @dropbox_token_secret)
       end
 
+      def set_access_token(dropbox_token, dropbox_token_secret)
+        @dropbox_token = dropbox_token
+        @dropbox_token_secret = dropbox_token_secret
+      end
     end # Dropbox
   end # Storage
 end # CarrierWave
