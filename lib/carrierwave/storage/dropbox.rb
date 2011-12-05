@@ -69,9 +69,10 @@ module CarrierWave
     class Dropbox < Abstract
       class File
 
-        def initialize(, base, path)
-          
+        def initialize(uploader, base, path)
+          @base = base
           @path = path
+          @uploader
         end
 
         ##
@@ -130,7 +131,7 @@ module CarrierWave
 
       def retrieve!
         f = CarrierWave::Storage::Dropbox::File.new(uploader, self, uploader.store_path)
-        f.read``(file)
+        f.read` `(file)
         f
       end
 
