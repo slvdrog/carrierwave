@@ -45,6 +45,7 @@ module CarrierWave
         add_config :dropbox_consumer_secret
         add_config :dropbox_token
         add_config :dropbox_token_secret
+        add_config :dropbox_access_type
 
         # fog
         add_config :fog_attributes

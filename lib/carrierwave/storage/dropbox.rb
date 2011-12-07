@@ -137,7 +137,7 @@ module CarrierWave
 
       def client
         @client ||= DropboxClient.new(session, uploader.dropbox_access_type)
-       end
+      end
 
       def session
         @session ||= new_session
