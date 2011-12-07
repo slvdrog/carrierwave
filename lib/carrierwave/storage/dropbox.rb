@@ -149,8 +149,8 @@ module CarrierWave
 
       def new_session
         db_session = DropboxSession.new(uploader.dropbox_consumer_key, uploader.dropbox_consumer_secret)
-        #db_session.set_access_token(@dropbox_token, @dropbox_token_secret)
-        db_session.get_access_token
+        puts @dropbox_token
+        db_session.set_access_token(@dropbox_token, @dropbox_token_secret)
       end
 
       def set_access_token(dropbox_token, dropbox_token_secret)
