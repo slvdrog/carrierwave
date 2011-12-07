@@ -138,26 +138,26 @@ module CarrierWave
         f
       end
 
-      def client2
-        @client ||= DropboxClient.new(session, uploader.dropbox_access_type)
-        puts "linked account: ",  @client.account_info().inspect
-      end
+#      def client2
+#        @client ||= DropboxClient.new(session, uploader.dropbox_access_type)
+#        puts "linked account: ",  @client.account_info().inspect
+#      end
 
-      def session
-        @session ||= new_session
-      end
+#      def session
+#        @session ||= new_session
+#      end
 
-      def new_session
-        db_session = DropboxSession.new(uploader.dropbox_consumer_key, uploader.dropbox_consumer_secret)
-        db_session.set_access_token(uploader.dropbox_token, uploader.dropbox_token_secret)
-      end
+#      def new_session
+#        db_session = DropboxSession.new(uploader.dropbox_consumer_key, uploader.dropbox_consumer_secret)
+#        db_session.set_access_token(uploader.dropbox_token, uploader.dropbox_token_secret)
+#      end
       
       def client
         @client ||= begin
           db_session = DropboxSession.new(uploader.dropbox_consumer_key, uploader.dropbox_consumer_secret)
           db_session.set_access_token(uploader.dropbox_token, uploader.dropbox_token_secret)
           db_client = DropboxClient.new(db_session, uploader.dropbox_access_type)
-          puts "linked account: ",  db_client.account_info().inspect
+          #puts "linked account: ",  db_client.account_info().inspect
         end
       end
 
