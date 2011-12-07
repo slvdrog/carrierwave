@@ -121,6 +121,9 @@ module CarrierWave
           client.put_file(path, file.read)
         end
 
+        def client
+          @base.client
+        end
       end
 
       def store!(file)
@@ -137,7 +140,7 @@ module CarrierWave
 
       def client
         @client ||= DropboxClient.new(session, uploader.dropbox_access_type)
-        puts "linked account: ", @client.account_info().inspect
+        puts "linked account: ",  @client.account_info().inspect
       end
 
       def session
