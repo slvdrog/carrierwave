@@ -112,6 +112,7 @@ module CarrierWave
         # [String] file's url
         #
         def url
+          p path
           response = client.media(path)
           response['url']
         end
