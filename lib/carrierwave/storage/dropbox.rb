@@ -133,9 +133,7 @@ module CarrierWave
       end
 
       def retrieve!(identifier)
-        f = CarrierWave::Storage::Dropbox::File.new(uploader, self, uploader.store_path(identifier))
-        f.read(file)
-        f
+        CarrierWave::Storage::Dropbox::File.new(uploader, self, uploader.store_path(identifier))
       end
 
 #      def client2
