@@ -94,14 +94,14 @@ module CarrierWave
         # [String] contents of the file
         #
         def read
-          @client.get_file(path)
+          client.get_file(path)
         end
 
         ##
         # Remove the file from Amazon S3
         #
         def delete
-          @client.file_delete(path)
+          client.file_delete(path)
         end
 
         ##
@@ -112,7 +112,7 @@ module CarrierWave
         # [String] file's url
         #
         def url
-          response = @client.media(path)
+          response = client.media(path)
           response[:url]
         end
 
