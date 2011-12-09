@@ -113,7 +113,7 @@ module CarrierWave
         #
         def url
           response = client.media(path)
-          response[:url]
+          response['url']
         end
 
 
