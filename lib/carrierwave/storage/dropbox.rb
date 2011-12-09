@@ -112,7 +112,6 @@ module CarrierWave
         # [String] file's url
         #
         def url
-          p client.media(path)
           response = client.media(path)
           response['url']
         end
@@ -134,6 +133,8 @@ module CarrierWave
       end
 
       def retrieve!(identifier)
+        p 'asd'
+        p identifier
         CarrierWave::Storage::Dropbox::File.new(uploader, self, uploader.store_path(identifier))
       end
 
