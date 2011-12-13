@@ -73,6 +73,7 @@ module CarrierWave
           @base = base
           @path = path
           @uploader = uploader
+          p 'dropbox initialization'
         end
 
         ##
@@ -133,8 +134,6 @@ module CarrierWave
       end
 
       def retrieve!(identifier)
-        p 'asd'
-        p identifier
         CarrierWave::Storage::Dropbox::File.new(uploader, self, uploader.store_path(identifier))
       end
 
