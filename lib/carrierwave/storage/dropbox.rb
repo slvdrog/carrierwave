@@ -73,7 +73,6 @@ module CarrierWave
           @base = base
           @path = path
           @uploader = uploader
-          p 'dropbox initialization'
         end
 
         ##
